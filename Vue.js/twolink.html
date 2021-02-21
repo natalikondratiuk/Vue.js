@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Двосторння прив'язка</title>
+</head>
+<body>
+	<div id="app">
+		<input type="text" v-model="name"/><br><br>
+		<input type="text" v-model="name"/>
+		<p>Name: {{ name }}</p>
+	</div>
+	<script src="https://unpkg.com/vue"></script>
+	<script>
+		var app = new Vue({
+			el : '#app', // кореневий елемент додатка (div з id "app" - область Vue.js)
+			data : { name : "Tom", age : 99 } // data (використані дані, дані, які має зберігати додаток, тобто його стан)
+		}); // Vue obj (ініціалізація додатка)
+	</script>
+</body>
+</html>

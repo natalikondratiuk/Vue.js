@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Обробка подій (в методах)</title>
+</head>
+<body>
+	<div id="app">
+		<button v-on:click="increase(3, $event)">+</button>
+		<button v-on:click="decrease(2, $event)">-</button>
+		<div><p>Counter is {{ counter }}</p></div>
+	</div>
+	<script src="https://unpkg.com/vue"></script>
+	<script>
+		var app = new Vue({
+			el : '#app', // кореневий елемент додатка (div з id "app" - область Vue.js)
+			data : { counter : 0 }, // data (використані дані, дані, які має зберігати додаток, тобто його стан)
+			methods : {
+				increase : function ( n, event ) {
+					console.log( event );
+					this.counter += n;
+				}, // increase (збільшення на 3)
+				decrease : function ( n, event ) {
+					this.counter -= n;
+				}, // decrease (зменшення на 2)
+			} // methods
+		}); // Vue obj (ініціалізація додатка)
+	</script>
+</body>
+</html>
