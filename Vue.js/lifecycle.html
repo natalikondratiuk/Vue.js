@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Життєвий цикл Vue</title>
+</head>
+<body>
+	<div id="app">
+		<h2>{{ message }}</h2>
+		<button v-on:click="message='Update'">Update</button>
+		<button v-on:click="destroy">Destroy</button>
+	</div>
+	<script src="https://unpkg.com/vue"></script>
+	<script>
+		var vm1 = new Vue({
+			el : '#app', // кореневий елемент додатка (div з id "app" - область Vue.js)
+			data :{
+				message : "Welcome to Vue.js"
+			}, // data 
+			methods : {
+				destroy : function(){
+					this.$destroy();
+				}, // destroy
+				beforeCreate : function(){
+					console.log ( 'beforeCreate()' );
+				}, // beforeCreate
+				created : function(){
+					console.log ( 'created()' );
+				}, // created
+				beforeMount : function(){
+					console.log ( 'beforeMount()' );
+				}, // beforeMount
+				mounted : function(){
+					console.log ( 'mounted()' );
+				}, // mounted
+				beforeUpdate : function(){
+					console.log ( 'beforeUpdate()' );
+				}, // beforeUpdate
+				updated : function(){
+					console.log ( 'updated()' );
+				}, // updated
+				beforeDestroy : function(){
+					console.log ( 'beforeDestroy()' );
+				}, // beforeDestroy
+				destroyed : function(){
+					console.log ( 'destroyed()' );
+				} // destroyed
+			} // methods
+		}); // Vue obj vm1 (ініціалізація додатка)
+	</script>
+</body>
+</html>

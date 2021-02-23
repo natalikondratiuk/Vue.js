@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Робота з об'єктом Vue (додаткові властивості та методи)</title>
+</head>
+<body>
+	<div id="app1">
+		<input type="text" v-model="name"/>
+		<input type="number" v-model="age"/>
+		<p>{{ name }} - {{ age }} - {{ position }}</p>
+	</div>
+	<script src="https://unpkg.com/vue"></script>
+	<script>
+		var vm1 = new Vue({
+			el : '#app1', // кореневий елемент додатка (div з id "app" - область Vue.js)
+			data : { name : 'Tom', age : 34	}, // data (використані дані, дані, які має зберігати додаток, тобто його стан)
+		}); // Vue obj vm1 (ініціалізація додатка)
+		
+		// визначення нового метода
+		vm1.setAge = function( value ){
+			vm1.age = value;
+		}; // vm1.setAge
+
+		// визначення нової властивості
+		vm1.position = "admin";  // не будуть автоматично відстежуватися
+		setTimeout( function(){
+			vm1.position = "moderator";
+		} /*function*/, 3000 ); // setTimeout
+	</script>
+</body>
+</html>

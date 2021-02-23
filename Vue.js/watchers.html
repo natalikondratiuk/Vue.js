@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Watchers</title>
+</head>
+<body>
+	<div id="app">
+		<p>Введіть число: <input v-model="number"/></p>
+		<p>{{ result }}</p>
+	</div>
+	<script src="https://unpkg.com/vue"></script>
+	<script>
+		var app = new Vue({
+			el : '#app', // кореневий елемент додатка (div з id "app" - область Vue.js)
+			data : {
+				number : '', // ініціаліззація властивості
+				result : ''
+			}, // data (використані дані, дані, які має зберігати додаток, тобто його стан)
+			watch :{
+				number : function ( newNumber ) {
+					if ( newNumber > 0 ){
+						this.factorial( newNumber ); // якщо додатнє число - вираховуєтьмя для нього факторіал
+					} // if newNumber > 0
+				} // number (відстежує властивість number, яка вказує на функцію)
+			}, // watch
+			methods : {
+				factorial : function ( newNumber ) {
+					this.result = "Відбувається обчислення факторіала...";
+					var vm = this;
+					setTimeout(function(){
+						var res = 1;
+						for ( var i = 1; i <= newNumber; i++ ){
+							res *= i;
+						} // for i
+						vm.result = 'Факторіал числа ' + newNumber + ' = ' + res; 
+					} /*function*/, 2000); // setTimeout (імітація подовженої операції)
+				} // factorial 
+			} // methods
+		}); // Vue obj (ініціалізація додатка)
+	</script>
+</body>
+</html>

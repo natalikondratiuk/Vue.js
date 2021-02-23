@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Вивчаємо Vue.js</title>
+</head>
+<body>
+	<div id="app">
+		<p>Enter your name: <input type="text" v-on:input="setName"/></p>
+		<p>Your name is {{name}}</p>
+		<p>Enter your age: <input type="text" v-on:input="setAge"/></p>
+		<p>Your age is {{age}}</p>
+	</div>
+	<script src="https://unpkg.com/vue"></script>
+	<script>
+		var userData = { name : 'Tom', age : 25 }; // передача данних ззовні
+		var app = new Vue({
+			el : '#app', // кореневий елемент додатка (div з id "app" - область Vue.js)
+			//data : userData // дані надходять ззовні
+			data : {
+				name : 'Tom',
+				age  : 25 
+			}, // data (використані дані, дані, які має зберігати додаток, тобто його стан)
+			methods : {
+				setName : function ( event ){
+					// event - передача інформації про подію
+					this.name = event.target.value; // можливість отримати введене заначення користувачем і присвоїти його змінній message через ключове слово this. v-on:input - зв'язок з методом setName
+				}, // setName (обробник вводу input на сторінці)
+				setAge : function ( event ){
+					// event - передача інформації про подію
+					this.age = event.target.value; // можливість отримати введене заначення користувачем і присвоїти його змінній message через ключове слово this. v-on:input - зв'язок з методом setAge
+				} // setAge (обробник вводу input на сторінці)
+			} // methods (дії, які виконуються в додатку)
+		}); // Vue obj (ініціалізація додатка)
+	</script>
+</body>
+</html>

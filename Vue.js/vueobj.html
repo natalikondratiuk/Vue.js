@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Робота з об'єктом Vue</title>
+</head>
+<body>
+	<div id="app1">
+		<input type="text" v-model="name"/>
+		<input type="number" v-model="age"/>
+		<p>{{ name }} - {{ age }}</p>
+	</div>
+	<div id="app2">
+		<input type="text" v-model="title"/>
+		<button v-on:click="onClick">Change</button>
+	</div>
+	<script src="https://unpkg.com/vue"></script>
+	<script>
+		var vm1 = new Vue({
+			el : '#app1', // кореневий елемент додатка (div з id "app" - область Vue.js)
+			data : { name : 'Tom', age : 22	}, // data (використані дані, дані, які має зберігати додаток, тобто його стан)
+			methods : {
+				setName : function ( value ) {
+					this.name = value;
+				} // setName
+			} // methods
+		}); // Vue obj vm1 (ініціалізація додатка)
+		// встановлення значення в простому JS коді
+		vm1.name = "Sam";
+		vm1.setName( "Mike" );
+
+		var vm2 = new Vue({
+			el : '#app2', // кореневий елемент додатка (div з id "app" - область Vue.js)
+			data : { title : '' }, // data (використані дані, дані, які має зберігати додаток, тобто його стан)
+			methods : {
+				onClick : function () {
+					vm1.setName( this.title );
+					// vm1.name = this.title;
+				} // onClick
+			} // methods
+		}); // Vue obj vm2 (ініціалізація додатка)
+	</script>
+</body>
+</html>
