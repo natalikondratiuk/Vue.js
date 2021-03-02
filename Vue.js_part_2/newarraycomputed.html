@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Повернення нового масиву (розрахункова властивість)</title>
+</head>
+<body>
+	<div id="app">
+		<input v-model="start" type="number"/>
+		<input v-model="end" type="number"/>
+		<ul>
+			<li v-for="phone in visibleList">
+				<p>{{ phone }}</p>
+			</li>
+		</ul>
+	</div>
+	<script src="https://unpkg.com/vue"></script>
+	<script>
+		var app = new Vue({
+			el : '#app', // кореневий елемент додатка (div з id "app" - область Vue.js)
+			data : {
+				start : 0, // початок нового масиву
+				end : 3, // кінець нового масиву
+				phones : [ 'iPhone 7', 'Galaxy S8', 'Nokia N8', 'Xiaomi Mi6' ]
+			}, // data
+			computed : {
+				visibleList : function () {
+					return this.phones.slice( this.start, this.end ); // створено нового масиву
+				} // visibleList
+			} // computed
+		}); // Vue obj app (ініціалізація додатка)
+	</script>
+</body>
+</html>

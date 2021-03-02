@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Директива v-if</title>
+</head>
+<body>
+	<div id="app">
+		<p v-if="visible">Перший параграф</p>
+		<p>Другий параграф</p>
+		<button v-on:click="visible=!visible">{{ visible ? 'Приховати' : 'Показати' }}</button>
+	</div>
+	<script src="https://unpkg.com/vue"></script>
+	<script>
+		var app = new Vue({
+			el : '#app', // кореневий елемент додатка (div з id "app" - область Vue.js)
+			data :{
+				visible : true // "Перший параграф" показується
+			}, // data 
+		}); // Vue obj app (ініціалізація додатка)
+	</script>
+</body>
+</html>

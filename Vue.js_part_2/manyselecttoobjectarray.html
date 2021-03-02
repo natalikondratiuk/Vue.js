@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Список з багатьма виборами. Прив'язка до об'єктів</title>
+</head>
+<body>
+	<div id="app">
+		<select v-model="selectedUsers" multiple>
+			<option v-for="user in users" v-bind:value="user">{{ user.name }}</option>
+		</select>
+		<h3>Вибрані об'єкти</h3>
+		<ul>
+			<li v-for="user in selectedUsers">{{ user.name }} - {{ user.age }}</li>
+		</ul>
+	</div>
+	<script src="https://unpkg.com/vue"></script>
+	<script>
+		var app = new Vue({
+			el : '#app', // кореневий елемент додатка (div з id "app" - область Vue.js)
+			data : {
+				users : [
+					{ name : 'Tom', age : 22 },
+					{ name : 'Bob', age : 25 },
+					{ name : 'Sam', age : 28 },
+					{ name : 'Alice', age : 26 }
+				], // users (масив об'єктів)
+				selectedUsers : [] // вибрані елементи потраплять до масиву
+			} // data
+		}); // Vue obj app (ініціалізація додатка)
+	</script>
+</body>
+</html>

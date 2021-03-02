@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Перебір об'єктів</title>
+</head>
+<body>
+	<div id="app">
+		<ul>
+			<li v-for="user in users">
+				<p v-for="(value, key) in user">{{ key }} : {{ value }}</p>
+			</li>
+		</ul>
+	</div>
+	<script src="https://unpkg.com/vue"></script>
+	<script>
+		var app = new Vue({
+			el : '#app', // кореневий елемент додатка (div з id "app" - область Vue.js)
+			data :{
+				users : [
+						{ name : 'Tom', age : 22 },
+						{ name : 'Bob', age : 31 },
+						{ name : 'Sam', age : 28 }
+				] // для кожного елемента масиву users створюється html-елемент <li>
+			}, // data 
+		}); // Vue obj app (ініціалізація додатка)
+	</script>
+</body>
+</html>

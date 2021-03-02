@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Фільтрація масиву</title>
+</head>
+<body>
+	<div id="app">
+		<input type="text" v-model="company"/>
+		<ul>
+			<li v-for="phone in filtredList">
+				<p>{{ phone.title }} - {{ phone.company }}</p>
+			</li>
+		</ul>
+	</div>
+	<script src="https://unpkg.com/vue"></script>
+	<script>
+		var app = new Vue({
+			el : '#app', // кореневий елемент додатка (div з id "app" - область Vue.js)
+			data : {
+				company : '',
+				phones : [
+					{ title : 'iPhone 7', company : 'Apple' },
+					{ title : 'iPhone 6S', company : 'Apple' },
+					{ title : 'Galaxy S8', company : 'Samsung' },
+					{ title : 'Galaxy S7 Edge', company : 'Samsung' },
+					{ title : 'Nokia N8', company : 'HMD Global' }
+				]
+			}, // data
+			computed : {
+				filtredList : function () {
+					var comp = this.company;
+					return this.phones.filter(function ( elem ) {
+						if ( comp == '' ) return; // значення не введено - повертаємо всі елементи з масиву
+						else return elem.company.indexOf( comp ) > -1; // фільтрація телефонів відбувається за компанією виробника
+					}) // filter
+				} // filtreList
+			} // computed
+		}); // Vue obj app (ініціалізація додатка)
+	</script>
+</body>
+</html>

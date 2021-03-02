@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Прив'язка до масиву</title>
+</head>
+<body>
+	<div id="app">
+		<input type="checkbox" value="Tom" v-model="selectedUsers"/>
+		<label>C#</label><br>
+		<input type="checkbox" value="Bob" v-model="selectedUsers"/>
+		<label>Bob</label><br>
+		<input type="checkbox" value="Sam" v-model="selectedUsers"/>
+		<label>Sam</label><br>
+		<input type="checkbox" value="Alice" v-model="selectedUsers"/>
+		<label>Alice</label><br>
+		<span>Вибрано: {{ selectedUsers }}</span>
+	</div>
+	<script src="https://unpkg.com/vue"></script>
+	<script>
+		var app = new Vue({
+			el : '#app', // кореневий елемент додатка (div з id "app" - область Vue.js)
+			data : {
+				selectedUsers : [] // відмітивши певний прапорець, ми заносимо його заначення в масив
+			} // data
+		}); // Vue obj app (ініціалізація додатка)
+	</script>
+</body>
+</html>

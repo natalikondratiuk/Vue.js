@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Директива v-show</title>
+</head>
+<body>
+	<div id="app">
+		<div v-show="visible">
+			<h2>Заголовок</h2>
+			<p>Текст</p>
+		</div>
+		<button v-on:click="visible=!visible">{{ visible ? 'Сховати' : 'Показати' }}</button>
+	</div>
+	<script src="https://unpkg.com/vue"></script>
+	<script>
+		var app = new Vue({
+			el : '#app', // кореневий елемент додатка (div з id "app" - область Vue.js)
+			data :{
+				visible : true // залежно від умови visible буде показуватися або приховуватися блок div
+			}, // data 
+		}); // Vue obj app (ініціалізація додатка)
+	</script>
+</body>
+</html>

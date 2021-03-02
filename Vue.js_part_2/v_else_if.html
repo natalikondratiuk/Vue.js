@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>v-else-if</title>
+</head>
+<body>
+	<div id="app">
+		<input type="number" v-model="number"/>
+		<p v-if="number == 1">Один</p>
+		<p v-else-if="number == 2">Два</p>
+		<p v-else-if="number > 2 && number < 7">Декілька</p>
+		<p v-else> Багато</p>
+	</div>
+	<script src="https://unpkg.com/vue"></script>
+	<script>
+		var app = new Vue({
+			el : '#app', // кореневий елемент додатка (div з id "app" - область Vue.js)
+			data :{
+				number : 1
+			}, // data 
+		}); // Vue obj app (ініціалізація додатка)
+	</script>
+</body>
+</html>

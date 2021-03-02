@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Форми у Vue.js (input)</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+	<div id="app" class="col-md-4">
+		<label>Логін</label>
+		<input type="text" v-model="login" placeholder="Введіть логін" class="form-control"/><br>
+		<label>Пароль</label>
+		<input type="text" v-model="password" placeholder="Введіть пароль" class="form-control"/><br>
+		<label>Вік</label>
+		<input type="number" v-model="age" min="18" placeholder="Введіть вік" class="form-control"/><br>
+		<label>Дата реєстрації</label>
+		<input type="date" v-model="date" placeholder="Введіть дату" class="form-control"/>
+		<br>
+		<div>
+			<h3>Введена інформація</h3>
+			<p>Логін: {{ login }}</p>
+			<p>Пароль: {{ password }}</p>
+			<p>Дата реєстрації: {{ date }}</p>
+		</div>
+	</div>
+	<script src="https://unpkg.com/vue"></script>
+	<script>
+		var app = new Vue({
+			el : '#app', // кореневий елемент додатка (div з id "app" - область Vue.js)
+			data : {
+				login : '',
+				password : '',
+				date : '',
+				age : 22
+			} // data
+		}); // Vue obj app (ініціалізація додатка)
+	</script>
+</body>
+</html>

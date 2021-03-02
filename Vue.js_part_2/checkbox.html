@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Прапорці</title>
+</head>
+<body>
+	<div id="app">
+		<input type="checkbox" id="checkbox" v-model="checked"/>
+		<label for="checkbox">{{ checked }}</label>
+	</div>
+	<script src="https://unpkg.com/vue"></script>
+	<script>
+		var app = new Vue({
+			el : '#app', // кореневий елемент додатка (div з id "app" - область Vue.js)
+			data : {
+				checked : true
+			} // data
+		}); // Vue obj app (ініціалізація додатка)
+	</script>
+</body>
+</html>

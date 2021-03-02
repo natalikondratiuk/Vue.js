@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Установка елемента в масиві</title>
+</head>
+<body>
+	<div id="app">
+		<ul>
+			<li v-for="(phone, index) in phones">
+				<p>{{ phone }}</p>
+			</li>
+		</ul>
+		<button v-on:click="updateList">Оновити</button>
+	</div>
+	<script src="https://unpkg.com/vue"></script>
+	<script>
+		var app = new Vue({
+			el : '#app', // кореневий елемент додатка (div з id "app" - область Vue.js)
+			data : {
+				newPhone : '',
+				phones : [ 'iPhone 7', 'Galaxy S8', 'Nokia N8', 'Xiaomi Mi6' ]
+			}, // data
+			methods : {
+				updateList : function () {
+					Vue.set( this.phones, 1, 'Samsung Galaxy S8' ); // заміна другого елемента масиву
+				} // updateList
+			} // methods
+		}); // Vue obj app (ініціалізація додатка)
+	</script>
+</body>
+</html>

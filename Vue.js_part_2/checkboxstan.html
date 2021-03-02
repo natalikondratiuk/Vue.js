@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Прапорці (стани)</title>
+</head>
+<body>
+	<div id="app">
+		<input type="checkbox" v-model="light" v-bind:true-value="on" v-bind:false-value="off"/>
+		<span v-if="light===on">Вимкнути</span>
+		<span v-else>Ввімкнути</span>
+	</div>
+	<script src="https://unpkg.com/vue"></script>
+	<script>
+		var app = new Vue({
+			el : '#app', // кореневий елемент додатка (div з id "app" - область Vue.js)
+			data : {
+				on : true,
+				off : false,
+				light : true
+			} // data
+		}); // Vue obj app (ініціалізація додатка)
+	</script>
+</body>
+</html>

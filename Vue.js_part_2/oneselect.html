@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Список з одиночним вибором</title>
+</head>
+<body>
+	<div id="app">
+		<select v-model="user">
+			<option>Tom</option>
+			<option>Bob</option>
+			<option>Sam</option>
+		</select>
+		<span>Вибрано: {{ user }}</span>
+	</div>
+	<script src="https://unpkg.com/vue"></script>
+	<script>
+		var app = new Vue({
+			el : '#app', // кореневий елемент додатка (div з id "app" - область Vue.js)
+			data : {
+				user : ''
+			} // data
+		}); // Vue obj app (ініціалізація додатка)
+	</script>
+</body>
+</html>

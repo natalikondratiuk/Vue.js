@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Сортування масиву</title>
+	<style>
+		a:hover{ cursor: pointer;  }
+	</style>
+</head>
+<body>
+	<div id="app">
+		<table>
+			<td><a @click="sortParam='title'">Модель</a></td>
+			<td><a @click="sortParam='company'">Компанія</a></td>
+			<td><a @click="sortParam='price'">Ціна</a></td>
+			<tr v-for="phone in sortedList">
+				<td>{{ phone.title }}</td><td>{{ phone.company }}</td><td>{{ phone.price }}</td>
+			</tr>
+		</table>
+	</div>
+	<script src="https://unpkg.com/vue"></script>
+	<script>
+		var app = new Vue({
+			el : '#app', // кореневий елемент додатка (div з id "app" - область Vue.js)
+			data : {
+				sortParam : '',
+				phones : [
+					{ title : 'Galaxy S8', company : 'Samsung', price : 45000 },
+					{ title : 'iPhone 7', company : 'Apple', price : 49000 },
+					{ title : 'Nokia N8', company : 'HMD Global', price : 25000 },
+					{ title : 'Galaxy Note 8', company : 'Samsung', price : 50000 },
+					{ title : 'iPhone 8', company : 'Apple', price : 60000 }
+				]
+			}, // data
+			computed : {
+				sortedList () {
+					switch ( this.sortParam ){
+						case 'title' : return this.phones.sort( sortByTitle );
+						case 'company' : return this.phones.sort( sortByCompany );
+						case 'price' : return this.phones.sort( sortByPrice );
+						default : return this.phones;
+					} // switch-case this.sortParam
+				} // sortedList
+			} // computed
+		}); // Vue obj app (ініціалізація додатка)
+
+		var sortByTitle = function ( d1, d2 ) {return d1.title.toLowerCase() > d2.title.toLowerCase()}; // sortByTitle
+
+		var sortByCompany = function ( d1, d2 ) {return d1.company.toLowerCase() > d2.company.toLowerCase()}; // sortByCompany
+
+		var sortByPrice = function ( d1, d2 ) {return d1.price > d2.price}; // sortByPrice
+	</script>
+</body>
+</html>
